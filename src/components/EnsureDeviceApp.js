@@ -50,6 +50,7 @@ class EnsureDeviceApp extends Component<{
       const currency = account ? account.currency : _currency
       invariant(currency, 'No currency given')
       const address = await getAddressFromAccountOrCurrency(device, account, currency)
+      logger.debug('address', address)
       if (account) {
         const { freshAddress } = account
         if (account && freshAddress !== address) {
@@ -112,6 +113,7 @@ class EnsureDeviceApp extends Component<{
 }
 
 async function getAddressFromAccountOrCurrency(device, account, currency) {
+  logger.debug('getAddress', device, currency)
   const { address } = await getAddress
     .send({
       derivationMode: account ? account.derivationMode : '',
@@ -123,6 +125,7 @@ async function getAddressFromAccountOrCurrency(device, account, currency) {
       segwit: account ? isSegwitDerivationMode(account.derivationMode) : false,
     })
     .toPromise()
+  logger.debug('getAddress', address)
   return address
 }
 

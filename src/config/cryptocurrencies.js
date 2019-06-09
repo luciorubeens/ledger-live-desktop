@@ -29,7 +29,8 @@ const supported: CryptoCurrencyIds[] = [
   'poswallet',
   'clubcoin',
   'decred',
-  'bitcoin_testnet',
+  'ark',
+  'bitcoin_testnet'
 ]
 
 export const listCryptoCurrencies: (

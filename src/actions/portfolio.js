@@ -1,4 +1,5 @@
 // @flow
+import logger from 'logger'
 import {
   getBalanceHistory,
   getBalanceHistoryWithCountervalue,
@@ -7,6 +8,7 @@ import {
 import type { Account, PortfolioRange } from '@ledgerhq/live-common/lib/types'
 import {
   exchangeSettingsForAccountSelector,
+  currencySettingsSelector,
   counterValueCurrencySelector,
   counterValueExchangeSelector,
   intermediaryCurrency,
@@ -63,15 +65,16 @@ export const portfolioSelector = (
 ) => {
   const counterValueCurrency = counterValueCurrencySelector(state)
   const counterValueExchange = counterValueExchangeSelector(state)
-  return getPortfolio(accounts, range, (account, value, date) =>
-    CounterValues.calculateWithIntermediarySelector(state, {
+  return getPortfolio(accounts, range, (currency, value, date) => {
+    const currencySettings = currencySettingsSelector(state, { currency })
+    return CounterValues.calculateWithIntermediarySelector(state, {
       value,
       date,
-      from: account.currency,
-      fromExchange: exchangeSettingsForAccountSelector(state, { account }),
+      from: currency,
+      fromExchange: currencySettings.exchange,
       intermediary: intermediaryCurrency,
       toExchange: counterValueExchange,
       to: counterValueCurrency,
-    }),
-  )
+    })
+  })
 }

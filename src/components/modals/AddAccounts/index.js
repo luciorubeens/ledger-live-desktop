@@ -164,7 +164,10 @@ class AddAccounts extends PureComponent<Props, State> {
   handleCloseModal = () => this.props.closeModal(MODAL_ADD_ACCOUNTS)
   handleStepChange = (step: Step) => this.setState({ stepId: step.id })
 
-  handleSetCurrency = (currency: ?CryptoCurrency) => this.setState({ currency })
+  handleSetCurrency = (currency: ?CryptoCurrency) => {
+    logger.debug(currency)
+    this.setState({ currency })
+  }
 
   handleSetScanStatus = (scanStatus: string, err: ?Error = null) => {
     if (err) {

@@ -2,6 +2,7 @@
  * @module models/account
  * @flow
  */
+import logger from 'logger'
 import { createDataModel } from '@ledgerhq/live-common/lib/DataModel'
 import { fromAccountRaw, toAccountRaw } from '@ledgerhq/live-common/lib/account'
 import type { DataModel } from '@ledgerhq/live-common/lib/DataModel'
@@ -27,6 +28,7 @@ const accountModel: DataModel<AccountRaw, Account> = createDataModel({
       let version = originalVersion
       let derivationMode
       let seedIdentifier
+      logger.debubg('ARARA', type)
       switch (type) {
         case 'libcore': {
           const i = walletName.indexOf('__') + currencyId.length + 1

@@ -1,5 +1,6 @@
 // @flow
 
+import logger from 'logger'
 import invariant from 'invariant'
 import React, { Fragment } from 'react'
 import { Trans } from 'react-i18next'
@@ -16,7 +17,7 @@ function StepConnectDevice({ t, currency, device, setAppOpened }: StepProps) {
   invariant(currency, 'No crypto asset given')
 
   const currencyName = `${currency.name} (${currency.ticker})`
-
+  logger.debug('ok', currency)
   return (
     <Fragment>
       <TrackPage category="AddAccounts" name="Step2" />
