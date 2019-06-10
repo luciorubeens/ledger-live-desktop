@@ -14,6 +14,7 @@ const supported: CryptoCurrencyIds[] = [
   'qtum',
   'zcash',
   'bitcoin_gold',
+  'ark',
   'stratis',
   'dogecoin',
   'digibyte',

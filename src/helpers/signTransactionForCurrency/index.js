@@ -4,6 +4,7 @@ import type Transport from '@ledgerhq/hw-transport'
 
 import ethereum from './ethereum'
 import ripple from './ripple'
+import ark from './ark'
 
 type Resolver = (
   transport: Transport<*>,
@@ -22,8 +23,8 @@ const all = {
   ethereum_testnet: ethereum,
   ethereum_classic: ethereum,
   ethereum_classic_testnet: ethereum,
-
   ripple,
+  ark
 }
 
 const m: Module = (currencyId: string) => all[currencyId] || fallback(currencyId)

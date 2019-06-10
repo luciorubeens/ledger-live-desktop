@@ -3,10 +3,12 @@ import React from 'react'
 import type { Account } from '@ledgerhq/live-common/lib/types'
 import EthereumKind from './EthereumKind'
 import RippleKind from './RippleKind'
+import ArkKind from './ArkKind'
 
 const byFamily = {
   ethereum: EthereumKind,
   ripple: RippleKind,
+  ark: ArkKind
 }
 
 type Props = {

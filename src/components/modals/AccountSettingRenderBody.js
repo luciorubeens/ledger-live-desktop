@@ -50,7 +50,7 @@ type Props = {
   data: any,
 }
 
-const canConfigureEndpointConfig = account => account.currency.id === 'ripple'
+const canConfigureEndpointConfig = account => ['ark', 'ripple'].includes(account.currency.id)
 
 const unitGetOptionValue = unit => unit.magnitude
 const renderUnitItemCode = item => item.data.code

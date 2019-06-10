@@ -390,6 +390,7 @@
         "useRBF": "Use a replace-by-fee transaction",
         "message": "Leave a message (140)",
         "rippleTag": "Tag",
+        "arkVendorField": "Vendor field",
         "ethereumGasLimit": "Gas limit",
         "unitPerByte": "{{unit}} per byte",
         "highFeeModal": {
